@@ -3,8 +3,9 @@ import {Header} from './components/Header';
 import {Name} from'./components/Name';
 import {Contact} from'./components/Contact';
 import {Date} from'./components/Date';
-import { FilesProvider } from './filesContext'
+import { FilesProvider } from './filesContext' 
 
+ 
 function App() {
  
   return (
@@ -15,6 +16,7 @@ function App() {
     <Contact/>
     <Date/>
     </FilesProvider>
+  
     </>
   );
 }

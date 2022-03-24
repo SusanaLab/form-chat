@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import {  useState} from "react";
 import operadora from  '../assets/operadora.png'
 import {ResDate} from './ResDate'
+import { StartButton } from './StartButton';
 const Componente = styled.section`
  display: flex;
  justify-content: center;
  padding: 0.5em;
  margin: 0.5em;
+ border-radius: 10px;
 `;
 const Form = styled.section`
 padding: 4em;
@@ -60,7 +62,7 @@ function Date () {
 <Componente>
     <Foto src={operadora} alt="operadora"/> 
     <Form>
-        <Question> ¿Cual es tu fecha de nacimiento? </Question>
+        <Question> ¿Cuál es tu fecha de nacimiento? </Question>
         <Input type="text" placeholder='Dia' value= {dia}  onChange={(event) => {
                   setDia(event.target.value);
                   console.log(dia)
@@ -77,6 +79,7 @@ function Date () {
    
 </Componente> 
 <ResDate {...{dia, mes, year} }/>
+<StartButton/>
 </>
   )
 }

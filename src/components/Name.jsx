@@ -9,6 +9,7 @@ const Componente = styled.section`
  justify-content: center;
  padding: 0.5em;
  margin: 0.5em;
+ border-radius: 10px;
 `;
 const Form = styled.section`
 padding: 4em;

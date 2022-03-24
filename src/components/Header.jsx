@@ -24,7 +24,7 @@ function Header () {
   return (
 <Wrapper>
   <Title>Cursos financieros </Title>
-  <Info>¿Quieres recibir informacion detalla sobre nuestros cursos de cultura financiera?</Info>
+  <Info>¿Quieres recibir información detalla sobre nuestros cursos de cultura financiera?</Info>
   <Time>Te tomara menos de 5 minutos </Time>
 </Wrapper>
   )
