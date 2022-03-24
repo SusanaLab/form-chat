@@ -1,6 +1,6 @@
-import React from 'react'
+ import React from 'react'
 import styled from 'styled-components';
-import { useContext} from "react";
+import { useState, useContext } from "react";
 import { FilesContext } from '../filesContext'
 import operadora from  '../assets/operadora.png'
 const Componente = styled.section`
@@ -83,4 +83,4 @@ function Name () {
   )
 }
 
-export {Name};
+export {Name}; 

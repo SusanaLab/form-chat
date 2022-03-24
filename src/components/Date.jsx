@@ -59,7 +59,7 @@ const {dia, mes, año, setMes, setDia, setAño} = useContext(FilesContext);
     <Foto src={operadora} alt="operadora"/> 
     <Form>
         <Question> ¿Cual es tu fecha de nacimiento? </Question>
-        <Input type="text" placeholder='Dia'  onChange={(event) => {
+        <Input type="text" placeholder='Dia' value= {dia}  onChange={(event) => {
                   setDia(event.target.value);
                   console.log(dia)
                 }} />

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { useContext } from 'react';
 
 const Section = styled.section`
 padding: 0.5em;
@@ -10,13 +11,16 @@ margin: 0.5em;
 
 
 function ResContact (props) {
- 
 
   return (
+    
     <Section>
+   
     <p>Correo electronico: {props.correo} </p>
     <p> Telefono celular: {props.telefono} </p>
+  
     </Section> 
+   
   )
 }
 export {ResContact}

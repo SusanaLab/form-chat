@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from 'styled-components';
-import {  useContext} from "react";
-import { FilesContext } from '../filesContext'
+import { useState} from "react";
 import operadora from  '../assets/operadora.png'
+import { ResContact } from './ResContact';
+import { FilesProvider } from '../filesContext';
 const Componente = styled.section`
  display: flex;
+ 
  justify-content: center;
- flex-direction: column;
  padding: 0.5em;
  margin: 0.5em;
 `;
-const Form = styled.section`
+const Form = styled.form`
 padding: 4em;
 background: #F0F0F0;
  display: flex;
@@ -43,25 +44,44 @@ const Foto = styled.img`
     border-radius: 10px;
 `;
 
+const Section = styled.section`
+padding: 0.5em;
+margin: 0.5em;
+ justify-content: center;
+ background: #F93F83;
+`;
+
 
 function Contact () {
-  const {correo, telefono, setCorreo, setTelefono} = useContext(FilesContext);
+    const [correo, setCorreo] = useState('');
+   const [telefono, setTelefono] = useState('');
+
+   
 
   return (
+    <FilesProvider>
 <Componente>
     <Foto src={operadora} alt="operadora"/> 
-    <Form>
+    <Form onSubmit={function handleSubmit(e) {
+    e.preventDefault();
+    console.log('click.');
+  }}>
         <Question> Datos de contacto</Question>
-        <Input type="text" placeholder='Correo electronico'   onChange={(event) => {
+        <Input type="text" placeholder='Correo electronico' value= {correo} onChange={(event) => {
                   setCorreo(event.target.value);
                   console.log(correo)
-                }}/>
-        <Input type="text" placeholder='Telefono celular'   onChange={(event) => {
+                }} />
+        <Input type="text" placeholder='Telefono celular' value= {telefono}  onChange={(event) => {
                   setTelefono(event.target.value);
                   console.log(telefono)
-                }}/>
+                }} />
+        <button type="submit"  >Enviar</button> 
          </Form>
+     
+        
 </Componente>
+  <ResContact {...{correo, telefono} }/>
+</FilesProvider>
   )
 }
 export {Contact}; 
