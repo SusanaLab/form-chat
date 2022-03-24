@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useState} from "react";
 import operadora from  '../assets/operadora.png'
 import { ResContact } from './ResContact';
-import { FilesProvider } from '../filesContext';
+
 const Componente = styled.section`
  display: flex;
  
@@ -44,12 +44,6 @@ const Foto = styled.img`
     border-radius: 10px;
 `;
 
-const Section = styled.section`
-padding: 0.5em;
-margin: 0.5em;
- justify-content: center;
- background: #F93F83;
-`;
 
 
 function Contact () {
@@ -59,7 +53,7 @@ function Contact () {
    
 
   return (
-    <FilesProvider>
+    <>
 <Componente>
     <Foto src={operadora} alt="operadora"/> 
     <Form onSubmit={function handleSubmit(e) {
@@ -75,13 +69,10 @@ function Contact () {
                   setTelefono(event.target.value);
                   console.log(telefono)
                 }} />
-        <button type="submit"  >Enviar</button> 
          </Form>
-     
-        
 </Componente>
-  <ResContact {...{correo, telefono} }/>
-</FilesProvider>
+<ResContact {...{correo, telefono} }/> 
+</>   
   )
 }
 export {Contact}; 

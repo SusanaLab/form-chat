@@ -1,8 +1,9 @@
  import React from 'react'
 import styled from 'styled-components';
-import { useState, useContext } from "react";
-import { FilesContext } from '../filesContext'
+import { useState } from "react";
 import operadora from  '../assets/operadora.png'
+import { NonName } from './NonName';
+
 const Componente = styled.section`
  display: flex;
  justify-content: center;
@@ -25,15 +26,6 @@ const Question = styled.h1`
   margin: 40px;
 
 `;
-const Send = styled.button`
-  font-size: 3.0 rem;
-  text-align: left;
-  color: #FAFAFA;
-  background: #F93F83;
-  border-radius: 3px;
-  border:0px;
-  
-`;
 const Input = styled.input`
   padding: 0.7em;
   margin: 0.7em;
@@ -52,11 +44,14 @@ const Foto = styled.img`
 
 
 function Name () {
-  const {nombre, setNombre, segundoNombre, setSegundoNombre, paterno, materno, setMaterno, setPaterno} = useContext(FilesContext);
-   
- 
+
+  const [nombre, setNombre] = useState('');
+  const [segundoNombre, setSegundoNombre] = useState('');
+  const [paterno, setPaterno] = useState('');  
+  const [materno, setMaterno] = useState('');  
 
   return (
+    <>
 <Componente>
     <Foto src={operadora} alt="operadora"/> 
     <Form>
@@ -77,9 +72,11 @@ function Name () {
                   setMaterno(event.target.value);
                   console.log(materno)
                 }}/>
-        <Send> Enviar </Send>
     </Form>
+ 
 </Componente>
+<NonName {...{nombre, segundoNombre, paterno, materno} }/>
+</>
   )
 }
 

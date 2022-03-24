@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
-import {  useContext} from "react";
-import { FilesContext } from '../filesContext'
+import {  useState} from "react";
 import operadora from  '../assets/operadora.png'
+import {ResDate} from './ResDate'
 const Componente = styled.section`
  display: flex;
  justify-content: center;
@@ -52,9 +52,11 @@ const Foto = styled.img`
 
 
 function Date () {
-const {dia, mes, año, setMes, setDia, setAño} = useContext(FilesContext);
-   
+  const [dia, setDia] = useState('');
+  const [mes, setMes] = useState('');
+  const [year, setYear] = useState(''); 
   return (
+    <>
 <Componente>
     <Foto src={operadora} alt="operadora"/> 
     <Form>
@@ -68,12 +70,14 @@ const {dia, mes, año, setMes, setDia, setAño} = useContext(FilesContext);
                   console.log(mes)
                 }} />
         <Input type="text" placeholder='Año'   onChange={(event) => {
-                  setAño(event.target.value);
-                  console.log(año)
+                  setYear(event.target.value);
+                  console.log(year)
                 }} />
-        <Send> Enviar </Send>
     </Form>
-</Componente>
+   
+</Componente> 
+<ResDate {...{dia, mes, year} }/>
+</>
   )
 }
 export {Date};

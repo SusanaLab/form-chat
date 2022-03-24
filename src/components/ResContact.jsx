@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
-import { useContext } from 'react';
+
 
 const Section = styled.section`
 padding: 0.5em;
 margin: 0.5em;
+border-radius: 10px;
  justify-content: center;
  background: #F93F83;
 `;

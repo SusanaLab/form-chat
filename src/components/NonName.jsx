@@ -11,16 +11,16 @@ border-radius: 10px;
 `;
 
 
-function ResDate (props) {
+function NonName (props) {
 
   return (
     
     <Section>
    
-    <p> {props.dia + " " }{props.mes + " " }{props.year + " " } </p>
+    <p> {props.nombre + " " }{props.segundoNombre + " " } {props.paterno + " " }{props.materno + " " } </p>
   
     </Section> 
    
   )
 }
-export {ResDate}
+export {NonName}
