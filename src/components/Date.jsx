@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import {  useState} from "react";
 import operadora from  '../assets/operadora.png'
 import {ResDate} from './ResDate'
-import { StartButton } from './StartButton';
 const Componente = styled.section`
  display: flex;
  justify-content: center;
@@ -79,7 +78,7 @@ function Date () {
    
 </Componente> 
 <ResDate {...{dia, mes, year} }/>
-<StartButton/>
+
 </>
   )
 }
