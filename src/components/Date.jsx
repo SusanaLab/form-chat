@@ -52,10 +52,17 @@ const Foto = styled.img`
 `;
 
 
-function Date () {
+function Date ({nombre, segundoNombre, paterno, materno}) {
   const [dia, setDia] = useState('');
   const [mes, setMes] = useState('');
   const [year, setYear] = useState(''); 
+
+  const [buttonClicked, setButtonClicked] = useState(false);
+
+  let handleButtonClick = () => {
+      setButtonClicked(true)
+  }
+
   return (
     <>
 <Componente>
@@ -70,15 +77,18 @@ function Date () {
                   setMes(event.target.value);
                   console.log(mes)
                 }} />
-        <Input type="text" placeholder='Año'   onChange={(event) => {
+        <Input type="number" placeholder='Año'   onChange={(event) => {
                   setYear(event.target.value);
                   console.log(year)
                 }} />
     </Form>
    
 </Componente> 
-<ResDate {...{dia, mes, year} }/>
-
+<a href="#abajo"><Send onClick={handleButtonClick}>
+      Enviar
+    </Send></a>
+    {buttonClicked ? <ResDate {...{dia, mes, year, nombre, segundoNombre, paterno, materno} }/> : null}
+    <a name="abajo"></a>
 </>
   )
 }

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
 padding: 4em;
+margin:0em;
 background: #F174DC;
 `;
 const Title = styled.h1`

@@ -4,6 +4,19 @@ import { useState } from "react";
 import operadora from  '../assets/operadora.png'
 import { NonName } from './NonName';
 
+const Send = styled.button`
+  font-size: 3.0 rem;
+  text-align: left;
+  color: #FAFAFA;
+  background: #F93F83;
+  border-radius: 3px;
+  border:0px;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+ 
+  
+`;
 const Componente = styled.section`
  display: flex;
  justify-content: center;
@@ -45,12 +58,18 @@ const Foto = styled.img`
 
 
 function Name () {
+  const [buttonClicked, setButtonClicked] = useState(false);
 
+  let handleButtonClick = () => {
+      setButtonClicked(true)
+
+  }
   const [nombre, setNombre] = useState('');
   const [segundoNombre, setSegundoNombre] = useState('');
   const [paterno, setPaterno] = useState('');  
   const [materno, setMaterno] = useState('');  
 
+  
   return (
     <>
 <Componente>
@@ -76,7 +95,12 @@ function Name () {
     </Form>
  
 </Componente>
-<NonName {...{nombre, segundoNombre, paterno, materno} }/>
+
+<a href="#abajo"><Send onClick={handleButtonClick}>
+      Enviar 
+    </Send></a>
+    {buttonClicked ? <NonName {...{nombre, segundoNombre, paterno, materno} }/> : null}
+    <a name="abajo"></a>
 </>
   )
 }

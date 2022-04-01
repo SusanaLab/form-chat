@@ -43,14 +43,30 @@ const Foto = styled.img`
     box-sizing: border-box;
     border-radius: 10px;
 `;
+const Send = styled.button`
+  font-size: 3.0 rem;
+  text-align: left;
+  color: #FAFAFA;
+  background: #F93F83;
+  border-radius: 3px;
+  border:0px;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+ 
+  
+`;
 
 
-
-function Contact () {
+function Contact ({dia, mes, year, nombre, segundoNombre, paterno, materno}) {
     const [correo, setCorreo] = useState('');
    const [telefono, setTelefono] = useState('');
 
-   
+   const [buttonClicked, setButtonClicked] = useState(false);
+
+  let handleButtonClick = () => {
+      setButtonClicked(true)
+  }
 
   return (
     <>
@@ -71,7 +87,11 @@ function Contact () {
                 }} />
          </Form>
 </Componente>
-<ResContact {...{correo, telefono} }/> 
+<a href="#abajo"><Send onClick={handleButtonClick}>
+      Enviar
+    </Send></a>
+    {buttonClicked ? <ResContact {...{correo, telefono, dia, mes, year, nombre, segundoNombre, paterno, materno} }/> : null}
+    <a name="abajo"></a>
 </>   
   )
 }
